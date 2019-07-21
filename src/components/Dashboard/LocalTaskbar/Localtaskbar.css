@@ -1,0 +1,14 @@
+.main div{
+    text-decoration: none;
+    padding-right: 30px;
+    size: 40px;
+}
+.main div:hover{
+    color:white;
+}
+.main div:active{
+    color:skyblue;
+}
+#log{
+    float: right;
+}

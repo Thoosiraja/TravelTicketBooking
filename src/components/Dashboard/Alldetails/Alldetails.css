@@ -1,0 +1,13 @@
+.over {
+    color: goldenrod;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 25px;
+    font-style: oblique;
+    /* background-image: url('./res.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; */
+    width: 100%;
+    height: 70pc;
+    background-attachment: fixed;
+}
