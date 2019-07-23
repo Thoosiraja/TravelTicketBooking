@@ -57,7 +57,6 @@ class AddBus extends Component {
                 console.log(res.data)
             })
         }
-
     }
     imageUpload = (e) => {
         const file = e.target.files[0];
@@ -75,9 +74,9 @@ class AddBus extends Component {
 
         this.setState({ [event.target.name]: event.target.value });
     }
-    componentDidMount(){
-        this.setState({det : localStorage.getItem("Bus")!== null ? JSON.parse(localStorage.getItem("Bus")) : []})
-    }
+    // componentDidMount(){
+    //     this.setState({det : localStorage.getItem("Bus")!== null ? JSON.parse(localStorage.getItem("Bus")) : []})
+    // }
     render() {
         return (
             <div>
@@ -197,7 +196,7 @@ class AddBus extends Component {
                                     </Form.Group>
                                     </Col>
                                     </Row>
-                                    <Row>
+                                    {/* <Row>
                                         <Col md={9}>
                                             <Form.Group as={Col}>
                                     <div className="custom-file">
@@ -218,7 +217,7 @@ class AddBus extends Component {
                                     <img src={this.state.img}  width="100" height="100" alt="No File"/>
                                     </Col>
                                     </Row>
-                                    <br />
+                                    <br /> */}
                                     <Row>
                                     <Col md={3}>   
                                     <Form.Group as={Col}>
@@ -237,6 +236,9 @@ class AddBus extends Component {
                                     </Row>
                     </Col>
                     </Form>
+                    <br />
+                    <br />
+                    <br />
                     <br />
                 </div>
             </div>

@@ -3,7 +3,6 @@ import {BrowserRouter as Router,Route} from 'react-router-dom';
 import './App.css';
 import Home from './components/Home/Home';
 import Dashboard from './components/Dashboard/Dashboard';
-// import Display1 from './components/Dashboard/DisplayDetails/DisplayDetails1';
 import Admin from './components/Admin/Admin';
 import Signup from './components/Signup/Signup';
 class App extends Component {

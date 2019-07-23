@@ -32,6 +32,9 @@ class Localtaskbar extends Component {
                             <Link to='/dashboard/display'>
                                 <div><Button varint="secondary">DISPLAY DETAILS</Button></div>
                             </Link>
+                            <Link to='/dashboard/editbus'>
+                                <div><Button varint="secondary">EDIT DETAILS</Button></div>
+                            </Link>
                             <Link to='/dashboard/alldetails'>
                                 <div><Button varint="secondary">ALL BOOKINGS</Button></div>
                             </Link>

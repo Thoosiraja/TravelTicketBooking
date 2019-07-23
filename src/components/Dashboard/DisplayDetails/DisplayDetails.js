@@ -32,10 +32,10 @@ class Get extends Component {
         // var a = localStorage.getItem('Bus');
         // var Res = JSON.parse(a);
         // this.setState({ list: Res });
-        this.setState({ Start: this.state.UserStart });
-        this.setState({ End: this.state.UserEnd });
+        // this.setState({ Start: this.state.UserStart });
+        // this.setState({ End: this.state.UserEnd });
         if (this.state.Start != "" && this.state.End != "") {
-            var link = "http://localhost:8000/Busdetails/" + this.state.Start + "/" + this.state.End
+            var link = "http://localhost:8000/Busdetails/" + this.state.Start + "/" + this.state.End + "/" + "a"
             axios.get(link).then(res => {
                 // alert("Data Collected")            
                 this.setState({ list: res.data })
@@ -57,6 +57,13 @@ class Get extends Component {
         console.log(index, this.state.list[index].Id,no)
         var id = this.state.list[index].Id
         var fare = this.state.list[index].Fare
+        var capacity = this.state.list[index].Capacity
+        if(capacity < this.state.No) {
+            return(
+                alert ("Tickets Not Available")
+            );
+            
+        }
             var link = "http://localhost:8000/Busdetails/" + id + "/" + this.state.No
                 axios.post(link).then(res => {
                     console.log(res.data)
@@ -73,7 +80,7 @@ class Get extends Component {
             this.setState({ show: false });
             // this.setState({ name: "" })
             this.setState({ No: "" })
-            prompt("Ticket Booked")
+            alert("Ticket Booked")
     }
 render() {
     return (
@@ -84,7 +91,7 @@ render() {
                         <Form>
                             <Form.Group as={Col} >
                                 <Form.Label>STARTING POINT</Form.Label>
-                                <Form.Control as="select" name="UserStart" id="Start" onChange={this.onset} required >
+                                <Form.Control as="select" name="Start" id="Start" onChange={this.onset} required >
                                     <option value="">Select City</option>
                                     <option value="Chennai">CHENNAI</option>
                                     <option value="Coimbatore">COIMBATORE</option>
@@ -94,7 +101,7 @@ render() {
                             </Form.Group>
                             <Form.Group as={Col} >
                                 <Form.Label>ENDING POINT</Form.Label>
-                                <Form.Control as="select" name="UserEnd" id="End" onChange={this.onset} required>
+                                <Form.Control as="select" name="End" id="End" onChange={this.onset} required>
                                     <option value="">Select City</option>
                                     <option value="Bangalore">BANGALORE</option>
                                     <option value="Chennai">CHENNAI</option>
@@ -109,7 +116,7 @@ render() {
                 <div><div className="row">
                         {
                             this.state.list.map((lis, index) => {
-                                if (lis.Start !== "" && lis.Destination !== "" && lis.Capacity > 0) {
+                                if (lis.Start !== "" && lis.Destination !== "" && lis.Capacity > -1) {
                                     return (
                                         <Card bg="dark" text="white" style={{ width: '18rem' }}>
                                             <Card.Header as="h6">BUS DETAILS</Card.Header>

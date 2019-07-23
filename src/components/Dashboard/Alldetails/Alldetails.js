@@ -23,7 +23,8 @@ class Alldetails extends Component {
                 console.log(this.state.list)
             })
             var a = 0
-            link = "http://localhost:8000/Busdetails/"+a
+            var b = 0
+            link = "http://localhost:8000/Busdetails/"+a+"/"+b
             axios.get(link).then(res => {
                 // alert("Data Collected")            
                 this.setState({ buslist: res.data })
